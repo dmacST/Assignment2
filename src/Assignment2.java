@@ -5,24 +5,28 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Assignment2 {
-    public Assignment2() throws FileNotFoundException {
+    public Assignment2() throws FileNotFoundException, InvalidNumberException {
     }
 
-//    private Assignment2(){
-//
-//    }
 
-    public Integer[] readFile() throws FileNotFoundException {
-        List<Integer> intFile = new ArrayList<Integer>();
+    public Integer[] readFile() throws FileNotFoundException, InvalidNumberException {
+        Integer[] array;
+        try {
+            List<Integer> intFile = new ArrayList<Integer>();
 
-        Scanner scanner = new Scanner(new FileReader("numbers.txt"));
-        int numbers;
-        while (scanner.hasNextLine()) {
-            numbers = Integer.parseInt(scanner.next());
-            intFile.add(numbers);
+            Scanner scanner = new Scanner(new FileReader("numbers.txt"));
+            int numbers;
+            while (intFile.size() < 10) {
+                numbers = Integer.parseInt(scanner.next());
+                intFile.add(numbers);
+            }
+
+            array = intFile.toArray(new Integer[0]);
+
+        } catch (Exception e) {
+            throw new InvalidNumberException("Error");
+
         }
-        Integer[] array = intFile.toArray(new Integer[0]);
-
         return array;
     }
 

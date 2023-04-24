@@ -3,7 +3,7 @@ import java.util.Arrays;
 
 public class Main {
 
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws FileNotFoundException, InvalidNumberException {
        Assignment2 obj = new Assignment2();
        Integer[] result = obj.readFile();
        int sum = obj.sum();
