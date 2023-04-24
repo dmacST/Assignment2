@@ -1,36 +1,23 @@
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.util.Scanner;
-import java.util.List;
-import java.util.ArrayList;
-import java.io.IOException;
-
-
-
+import java.util.Arrays;
 
 public class Main {
+
     public static void main(String[] args) throws FileNotFoundException {
-        readFile();
+       Assignment2 obj = new Assignment2();
+       Integer[] result = obj.readFile();
+       int sum = obj.sum();
+       System.out.println(Arrays.toString(result));
+       System.out.println(sum);
+
+
+
 
     }
 
-public static void readFile() throws FileNotFoundException {
-        List<Integer> intFile = new ArrayList<Integer>();
-
-        Scanner scanner = new Scanner(new FileReader("numbers.txt"));
-        int numbers;
-        while (scanner.hasNextLine())   {
-            numbers = Integer.parseInt(scanner.next());
-            intFile.add(numbers);
-        }
-        Integer[] array = intFile.toArray(new Integer[0]);
-
-        for (Integer eachInt : array){
-            System.out.println(eachInt);
-        }
 
 
 
 }
-}
+
+
